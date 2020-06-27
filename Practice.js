@@ -1,21 +1,21 @@
 const getUserChoice = userInput => {
-  userInput =
+  lowUserInput =
   userInput.toLowerCase();
 
-  userInput === "rock"||
-  userInput === "paper"||
-  userInput === "scissors" ?
+  lowUserInput === "rock"||
+  lowUserInput === "paper"||
+  lowUserInput === "scissors" ?
 
-  console.log(`You played: ${userInput}.`)
+  console.log(`You played: ${lowUserInput}.`)
   :
-  userInput = `${userInput.toUpperCase()} is an invalid Input`;
+  lowUserInput = `${userInput.toUpperCase()} is an invalid Input`;
 
-  return userInput;
+  return lowUserInput;
 
 }
 
 const getCompChoice = () => {
-  num = Math.floor(Math.random()*3)
+  const num = Math.floor(Math.random()*3);
 
   switch (num) {
     case 0:
