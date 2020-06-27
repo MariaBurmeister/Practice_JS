@@ -1,21 +1,22 @@
 const getUserChoice = userInput => {
-  lowUserInput =
+  let lowUserInput =
   userInput.toLowerCase();
 
   lowUserInput === "rock"||
   lowUserInput === "paper"||
-  lowUserInput === "scissors" ?
+  lowUserInput === "scissors"||
+  lowUserInput === "bomb" ?
 
-  console.log(`You played: ${lowUserInput}.`)
+  lowUserInput = `You played: ${lowUserInput}.`
   :
-  lowUserInput = `${userInput.toUpperCase()} is an invalid Input`;
+  lowUserInput = `${lowUserInput.toUpperCase()} is an invalid Input`;
 
   return lowUserInput;
 
 }
 
 const getCompChoice = () => {
-  const num = Math.floor(Math.random()*3);
+  const num = Math.floor(Math.random()*3)
 
   switch (num) {
     case 0:
@@ -28,38 +29,43 @@ const getCompChoice = () => {
 }
 
 const determineWinner = (userChoice, compChoice) => {
+  let result = "";
 
-  if (userChoice === compChoice) {
-    console.log("The game was a tie!");
+  if (userChoice === "bomb" ) {
+    result = "BOOOM, YOU WON!";
 
-  } else if (userChoice === "rock") {
-    compChoice === "paper" ?
-      console.log('Computer won!')
-      :
-      console.log('User won!') ;
+    } else if (userChoice === compChoice) {
+        result = "The game was a tie!";
+
+    } else if (userChoice === "rock") {
+      compChoice === "paper" ?
+        result = 'Computer won!'
+        :
+        result = 'User won!' ;
 
     } else if (userChoice === "paper") {
       compChoice === "scissors" ?
-        console.log('Computer won!')
+        result = 'Computer won!'
         :
-        console.log('User won!');
+        result = 'User won!';
 
     } else if (userChoice === "scissors") {
       compChoice === "rock" ?
-        console.log('Computer won!')
+        result = 'Computer won!'
         :
-        console.log('User won!');
+        result = 'User won!';
     }
+    return result;
   }
 
 const playGame = (uChoice) => {
   const userChoice = getUserChoice(uChoice);
   const compChoice = getCompChoice();
 
-  //console.log(userChoice);
+  console.log(userChoice);
   console.log(`Computer played: ${compChoice}`);
 
   console.log(determineWinner(userChoice, compChoice));
 }
 
-playGame("paper");
+playGame("Lizard");
